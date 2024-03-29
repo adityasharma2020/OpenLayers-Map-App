@@ -11,10 +11,8 @@ import {
 	RFeature,
 	RStyle,
 	RInteraction,
-	ROverlay,
+	
 } from 'rlayers';
-import VectorSource from 'ol/source/Vector';
-import { OLFeatureClass } from 'rlayers/context';
 
 const origin = [78.345, 22.91];
 const center = fromLonLat(origin);
@@ -25,7 +23,7 @@ export default function Map(): JSX.Element {
 	const [hoverCoords, setHoverCoords] = useState([0, 0]);
 	const [addMarkerMode, setAddMarkerMode] = useState(false);
 	const [drawType, setDrawType] = useState('None');
-	const [drawnShapes, setDrawnShapes] = useState([]);
+
 
 	const handleClick = useCallback(
 		(e: MapBrowserEvent<UIEvent>) => {
@@ -58,20 +56,7 @@ export default function Map(): JSX.Element {
 		setHoverCoords(coords);
 	}, []);
 
-	const handleDrawEnd = useCallback((e) => {
-		const geometry = e.feature.getGeometry();
-		let measurement = null;
-		if (geometry instanceof Point) {
-			measurement = geometry.getLength();
-		}
-		setDrawnShapes((prevShapes) => {
-			const newShape = {
-				geometry: geometry,
-				measurement: measurement,
-			};
-			return [...prevShapes, newShape];
-		});
-	}, []);
+	
 
 	const handleDrawTypeChange = (type: string) => {
 		setDrawType(type);
@@ -129,11 +114,9 @@ export default function Map(): JSX.Element {
 
 						{drawType === 'LineString' && <RInteraction.RDraw type={'LineString'} />}
 
-						{drawType === 'FreehandPolygon' && (
-							<RInteraction.RDraw type={'FreehandPolygon'} />
-						)}
+						
 
-						{drawType === 'Rectangle' && <RInteraction.RDraw type={'Rectangle'} />}
+						
 
 						<RInteraction.RModify />
 					</RLayerVector>
