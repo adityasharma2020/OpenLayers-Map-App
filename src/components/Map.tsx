@@ -3,16 +3,7 @@ import { fromLonLat, toLonLat } from 'ol/proj';
 import { MapBrowserEvent } from 'ol';
 import { Point } from 'ol/geom';
 import 'ol/ol.css';
-import {
-	RMap,
-	ROSM,
-	RControl,
-	RLayerVector,
-	RFeature,
-	RStyle,
-	RInteraction,
-	
-} from 'rlayers';
+import { RMap, ROSM, RControl, RLayerVector, RFeature, RStyle, RInteraction } from 'rlayers';
 
 const origin = [78.345, 22.91];
 const center = fromLonLat(origin);
@@ -24,12 +15,9 @@ export default function Map(): JSX.Element {
 	const [addMarkerMode, setAddMarkerMode] = useState(false);
 	const [drawType, setDrawType] = useState('None');
 
-
 	const handleClick = useCallback(
 		(e: MapBrowserEvent<UIEvent>) => {
-			
 			if (addMarkerMode) {
-			
 				const coords = toLonLat(e.map.getCoordinateFromPixel(e.pixel));
 				setLoc(coords);
 				const newMarker = {
@@ -56,12 +44,10 @@ export default function Map(): JSX.Element {
 		setHoverCoords(coords);
 	}, []);
 
-	
-
 	const handleDrawTypeChange = (type: string) => {
 		setDrawType(type);
 	};
-	
+
 	// Function to clear all markers
 	const clearMarkers = () => {
 		setMarkers([]);
@@ -75,7 +61,7 @@ export default function Map(): JSX.Element {
 				<RMap
 					className='example-map'
 					width={'100%'}
-					height={'85vh'}
+					height={'75vh'}
 					initial={{ center: center, zoom: 12 }}
 					onPointerMove={handleMouseMove}
 					onClick={handleClick}
@@ -113,10 +99,6 @@ export default function Map(): JSX.Element {
 						{drawType === 'Circle' && <RInteraction.RDraw type={'Circle'} />}
 
 						{drawType === 'LineString' && <RInteraction.RDraw type={'LineString'} />}
-
-						
-
-						
 
 						<RInteraction.RModify />
 					</RLayerVector>
@@ -175,8 +157,6 @@ export default function Map(): JSX.Element {
 					>
 						Clear All Markers
 					</button>
-
-					
 				</div>
 			</div>
 
