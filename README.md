@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Interactive Map Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This interactive map application allows users to explore and interact with maps in a dynamic manner. It provides various functionalities such as adding markers, drawing shapes, and customizing zoom levels.
 
-Currently, two official plugins are available:
+## Features
+- **Custom Zoom Slider**: Users can zoom in and out of the map using a customized slider for better navigation.
+- **Zoom Liner**: Provides a linear representation of zoom levels to assist users in understanding the zoom scale.
+- **Current Location Marker**: Displays a marker at the user's current location on the map for reference.
+- **Previous Click Location**: Shows the coordinates of the last clicked location on the map.
+- **Adding Multiple Markers**: Enables users to add multiple markers by clicking on the map.
+- **Delete Markers on Double Click**: To delete a marker, first disable the 'Add Marker' button, then double-click on the marker.
+- **Enable/Disable Marker Mode**: Provides a button to toggle between adding and disabling markers.
+- **Clear All Markers**: Offers a button to remove all markers from the map.
+- **Draw and Modify Shapes**: Supports drawing and modifying various shapes like polygons, circles, and lines.
+- **Clear All Shapes**: Allows users to remove all LI shapes from the map.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
+To run the application locally:
+1. Clone this repository to your local machine.
+2. Install the necessary dependencies using npm or yarn.
+3. Run the development server using `npm start` or `yarn start`.
+4. Access the application in your browser at `http://localhost:5173I`.
 
-## Expanding the ESLint configuration
+## Technologies Used
+- React.js: Frontend framework for building user interfaces.
+- OL (OpenLayers): Library for interactive maps and geospatial data visualization.
+- Tailwind CSS: Utility-first CSS framework for styling components.
+- RLayers: React components for integrating OpenLayers into React applications.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
